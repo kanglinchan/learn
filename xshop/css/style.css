@@ -30,13 +30,19 @@ Logo filename: logo.gif
 }
 
 
+.container{
+	width: 1240px;
+	margin: 0 auto;
+}
+
+
 /*custom style star*/
 body{
 	font: 16px/1.5 "微软雅黑", helvetica, arial, monospace;
 	color: #303030;
 }
 
-body.page-index{
+body.page-bg{
 	background-color: #e9e9e9;
 }
 
@@ -46,11 +52,6 @@ div.header{
 
 div.header-top-bar{
 	background-color: #e9e9e9;
-}
-
-div.header-top-bar-wrap{
-	margin: 0 auto;
-	width: 1240px;
 	font-size: 14px;
 	line-height: 30px;
 }
@@ -80,20 +81,6 @@ div.header-top-bar a:last-child:after{
 	content: "";
 	padding: 0;
 }
-
-
-div.header-top-bar-left{
-	
-}
-
-
-div.header-nav-menu{
-	height: 125px;
-	width: 1240px;
-	margin: 0 auto;
-}
-
-
 
 div.header-nav-menu-logo{
 	float: left;
@@ -181,7 +168,6 @@ div.index-container{
 }
 
 div.index-category{
-	
 	width: 220px;
 	height: 480px;
 	position: absolute;
@@ -257,7 +243,6 @@ div.index-category-plane  dl dd a{
 
 
 div.floor{
-	width: 1240px;
 	margin: 16px auto 30px;
 }
 
@@ -315,7 +300,6 @@ div.footer-banner{
 }
 
 div.footer-content{
-	width: 1240px;
 	margin: 40px auto;
 	
 }
@@ -464,4 +448,118 @@ div.footer div.footer-copyright {
 div.footer div.footer-copyright p{
 	margin: 0;
 	line-height: 2em;
+}
+
+
+
+
+
+
+/*goods page*/
+div.breadcrumb{
+	line-height: 4em;
+	color: #8A8A8A;
+	font-size: 12px;
+}
+
+div.inner-wrap{
+	padding: 30px 10px;
+	background: #FFFFFF;
+}
+
+div.product-view{
+	width: 550px;
+	height: 550px;
+	float: left;
+}
+
+div.product-info{
+	color: #8A8A8A;
+	float: right;
+	width: 620px;
+}
+
+div.product-main h2, div.product-main p{
+	margin: 0;
+	line-height: 1em;
+}
+
+div.product-main h2.product-name{
+	font-weight: normal;
+	font-size: 24px;
+	margin: 0;
+	color: #303030;
+}
+
+div.product-main p.product-desc{
+	margin-top: 15px;
+	line-height: 1.5em;
+	font-size: 14px;
+}
+
+div.product-main p.product-desc span{
+	color: orange;
+}
+
+div.product-main p.product-price{
+	margin-top: 20px;
+	color: orange;
+	font-size: 18px;
+}
+
+div.product-main div.product-choose{
+	border-top: 1px solid #eee;
+	margin-top: 30px;
+	padding-top: 15px;
+}
+div.product-main div.product-choose dl{
+	margin-right: -10px;
+}
+
+div.product-main div.product-choose dl dt{
+	line-height: 2em;
+}
+
+div.product-main div.product-choose dd{
+	float: left;
+	margin-left: 0;
+	width: 198px;
+	margin-right: 10px;
+	height: 40px;
+	border: #AAAAAAa
+	 dashed 1px;
+}
+
+
+
+
+
+
+
+/*plugin configue*/
+div.index-banner div.swiper-container {
+    width: 1240px;
+    height: 480px;
+}  
+
+div.index-banner div.swiper-container  div.swiper-button-prev{
+	left: 250px;
+}
+
+
+
+/*goods plugin configue*/
+div.product-view div.swiper-container{
+	height: 550px;
+	width: 550px;
+}
+
+
+/*index plugin configue*/
+div.product-ad{
+	position: relative;
+	overflow: hidden;
+}
+div.product-ad div.swiper-container{
+	height: 200px;
 }

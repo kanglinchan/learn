@@ -1,14 +1,22 @@
+<!--header start-->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 	<title>首页</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" href="css/swiper.css">
 </head>
-<body class="page-index">
+<body class="page-bg">
+	
+	<script src="js/jquery-2.0.3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/swiper.jquery.umd.js" type="text/javascript" charset="utf-8"></script>
+	
+	
 		<div class="header">
 			<div class="header-top-bar">
-				<div class="header-top-bar-wrap">
+				<div class="container">
 					<div class="header-top-bar-left">
 						<a href="">注册</a>
 						<a href="">登录</a>
@@ -24,7 +32,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="header-nav-menu">
+			<div class="header-nav-menu container">
 				<div class="header-nav-menu-box clear-fix">
 					<div class="header-nav-menu-logo">
 						<img src=""/>
@@ -54,7 +62,10 @@
 				</dl>
 			</div>
 		</div>
-		
+	
+	<!--header end-->
+	
+	
 		<div class="index-container">
 			<div class="index-category">
 				<ul>
@@ -103,15 +114,40 @@
 				</div>
 			</div>
 			<div class="index-banner">
-				
+				<div class="swiper-container">
+				    <div class="swiper-wrapper">
+				        <div class="swiper-slide">Slide 1</div>
+				        <div class="swiper-slide">Slide 2</div>
+				        <div class="swiper-slide">Slide 3</div>
+				    </div>
+				    <!-- 如果需要分页器 -->
+				    <div class="swiper-pagination"></div>
+				    
+				    <!-- 如果需要导航按钮 -->
+				    <div class="swiper-button-prev"></div>
+				    <div class="swiper-button-next"></div>
+				 
+				</div>
 			</div>
 		</div>
 		
-		<div class="floor product-ad">
-			
+		<div class="floor container product-ad">
+			<div class="swiper-container">
+				    <div class="swiper-wrapper">
+				        <div class="swiper-slide">Slide 1</div>
+				        <div class="swiper-slide">Slide 2</div>
+				        <div class="swiper-slide">Slide 3</div>
+				        <div class="swiper-slide">Slide 5</div>
+				        <div class="swiper-slide">Slide 5</div> 
+				    </div>
+				    
+				    <!-- 如果需要导航按钮 -->
+				    <div class="swiper-button-prev"></div>
+				    <div class="swiper-button-next"></div>
+			</div>
 		</div>
 		
-		<div class="floor">
+		<div class="floor container">
 			<div class="floor-header ">
 				<h3>漏乘名称</h3>
 				<span>副标题啊啊啊啊</span>
@@ -212,52 +248,77 @@
 			</div>
 		</div>
 		
+	<!--footer start-->	
+	<div class="footer">
+		<div class="footer-banner">
 		
-		<div class="footer">
-			<div class="footer-banner">
-			
-			</div>
-			<div class="footer-content clear-fix">
-				<dl>
-					<dt>买家帮助</dt>
-					<dd>注册</dd>
-					<dd>2D定制帮助</dd>
-					<dd>3D打印帮助</dd>
-				</dl>
-				<dl>
-					<dt>买家常见问题</dt>
-					<dd>创客帮助</dd>
-					<dd>创客入驻</dd>
-					<dd>创客设置</dd>
-					<dd>模型管理相关</dd>
-				</dl>
-				<dl>
-					<dt>买家常见问题</dt>
-					<dd>创客帮助</dd>
-					<dd>创客入驻</dd>
-					<dd>创客设置</dd>
-					<dd>模型管理相关</dd>
-				</dl>
-				<dl>
-					<dt>联系我们</dt>
-					<dd>直线：020-6628 6608</dd>
-					<dd>邮箱：service@winbo.cn</dd>
-					<dd>QQ：8000  71368</dd>
-					<dd>投诉：020-6628 6608</dd>
-				</dl>
-				
-				<dl>
-					<dd></dd>
-					<dd></dd>
-				</dl>
-			</div>
-			<div class="footer-copyright">
-				<p>360商城©2013-2017 360公司版权所有 京ICP备17017089号 京公网安备11000002000006号</P>
-				<p>公司名：奇酷互联网络科技（深圳）有限公司 | 联系电话：0755-61898999 | 联系地址：深圳市南山区学苑大道1001号南山智园A2栋</p>
-			</div>
 		</div>
+		<div class="footer-content container clear-fix">
+			<dl>
+				<dt>买家帮助</dt>
+				<dd>注册</dd>
+				<dd>2D定制帮助</dd>
+				<dd>3D打印帮助</dd>
+			</dl>
+			<dl>
+				<dt>买家常见问题</dt>
+				<dd>创客帮助</dd>
+				<dd>创客入驻</dd>
+				<dd>创客设置</dd>
+				<dd>模型管理相关</dd>
+			</dl>
+			<dl>
+				<dt>买家常见问题</dt>
+				<dd>创客帮助</dd>
+				<dd>创客入驻</dd>
+				<dd>创客设置</dd>
+				<dd>模型管理相关</dd>
+			</dl>
+			<dl>
+				<dt>联系我们</dt>
+				<dd>直线：020-6628 6608</dd>
+				<dd>邮箱：service@winbo.cn</dd>
+				<dd>QQ：8000  71368</dd>
+				<dd>投诉：020-6628 6608</dd>
+			</dl>
+			
+			<dl>
+				<dd></dd>
+				<dd></dd>
+			</dl>
+		</div>
+		<div class="footer-copyright">
+			<p>360商城©2013-2017 360公司版权所有 京ICP备17017089号 京公网安备11000002000006号</P>
+			<p>公司名：奇酷互联网络科技（深圳）有限公司 | 联系电话：0755-61898999 | 联系地址：深圳市南山区学苑大道1001号南山智园A2栋</p>
+		</div>
+	</div>
 		
-		
-		
+	<!--footer end-->
+	<script>        
+	  new Swiper ('div.index-banner div.swiper-container', {
+	    loop: true,
+	    
+	    // 如果需要分页器
+	    pagination: 'div.index-banner div.swiper-pagination',
+	    
+	    // 如果需要前进后退按钮
+	    nextButton: 'div.index-banner div.swiper-button-next',
+	    prevButton: 'div.index-banner div.swiper-button-prev',
+	    
+	    // 如果需要滚动条
+	    //scrollbar: '.swiper-scrollbar',
+	  }) 
+	  
+	  
+
+		new Swiper('div.product-ad div.swiper-container',{
+			slidesPerView : 4,
+			spaceBetween : 20,
+			nextButton: '.swiper-button-next',
+	    	prevButton: '.swiper-button-prev',
+		})
+
+  </script>
+</body>	
 </body>
 </html>

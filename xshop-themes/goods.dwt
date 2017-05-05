@@ -1,0 +1,33 @@
+<!-- #BeginLibraryItem "/library/header.lbi" --><!-- #EndLibraryItem --> 
+
+
+<!--page start-->
+
+<!-- #BeginLibraryItem "/library/breadcrumb.lbi" --><!-- #EndLibraryItem --> 
+
+<div class="product-main container">
+	<div class="inner-wrap clear-fix">
+		
+		 <!-- #BeginLibraryItem "/library/product-view.lbi" --><!-- #EndLibraryItem -->
+		 <!-- #BeginLibraryItem "/library/product-info.lbi" --><!-- #EndLibraryItem -->
+		
+	</div>
+</div>
+
+
+<!-- #BeginLibraryItem "/library/goods-nav-bar.lbi" --><!-- #EndLibraryItem -->
+
+<div class="product-intro">	
+
+	<!-- #BeginLibraryItem "/library/product-property.lbi" --><!-- #EndLibraryItem -->
+	<!-- #BeginLibraryItem "/library/product-description.lbi" --><!-- #EndLibraryItem -->
+	<!-- #BeginLibraryItem "/library/product-tag.lbi" --><!-- #EndLibraryItem -->
+	<!-- #BeginLibraryItem "/library/buy-record.lbi" --><!-- #EndLibraryItem -->
+	<!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem -->
+
+</div>
+
+
+
+	
+ <!-- #BeginLibraryItem "/library/footer.lbi" --><!-- #EndLibraryItem --> 

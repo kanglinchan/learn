@@ -1,0 +1,101 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="footer">
+    <div class="footer-banner">
+
+    </div>
+    <div class="footer-content container clear-fix">
+
+        <!--{if $helps}-->
+        <!-- {foreach from=$helps item=help_cat} -->
+        <dl>
+            <dt><a href='{$help_cat.cat_id}' title="{$help_cat.cat_name}">{$help_cat.cat_name}</a></dt>
+            <!-- {foreach from=$help_cat.article item=item} -->
+            <dd><a href="{$item.url}" title="{$item.title|escape:html}">{$item.short_title}</a></dd>
+            <!-- {/foreach} -->
+        </dl>
+        <!-- {/foreach} -->
+        <!--{/if}-->
+
+        <dl>
+            <dt>聯係方式</dt>
+            <dd>直线：{$service_phone}</dd>
+            <!-- 邮件{if $service_email} -->
+            <dd>E-mail: {$service_email}</dd>
+            <!-- 结束邮件{/if} -->
+
+            <!-- QQ 号码 {foreach from=$qq item=im} -->
+            <!-- {if $im} -->
+            <dd>QQ: {$im} </dd>
+            <!-- {/if} -->
+            <!-- {/foreach} 结束QQ号码 -->
+        </dl>
+
+        <dl>
+            <dt>邮件订阅</dt>
+            <dd>
+                <input type="text" id="user_email" class="inputBg" /><input type="button" class="bnt_blue" value="{$lang.email_list_ok}"
+                    onclick="add_email_list();" />
+            </dd>
+        </dl>
+    </div>
+    <div class="footer-copyright">
+        <p>{$copyright}</P>
+        <p>
+            {$shop_address} {$shop_postcode}
+            <!-- ICP 证书{if $icp_number} -->
+            {$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a><br />
+            <!-- 结束ICP 证书{/if} -->
+        </p>
+    </div>
+
+    <div id="slidebar">
+        <ul class="not-list">
+            <li class="service">
+                <a href="http://wpa.qq.com/msgrd?V=1&Uin={$im}&Site={$shop_name}&Menu=yes" target="_blank">联系客服</a>
+            </li>
+            <li class="rqCode">
+                <a href="javasscript:void(0);">扫二维码</a>
+                <div class="code-picture">
+                    <img src="images/wechatQRcode.png" />
+                    <p>扫码关注官方微信</p>
+                </div>
+            </li>
+            <li class="topback">
+                <a href="#top">返回顶部</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var email = document.getElementById('user_email');
+    function add_email_list() {
+        if (check_email()) {
+            Ajax.call('user.php?act=email_list&job=add&email=' + email.value, '', rep_add_email_list, 'GET', 'TEXT');
+        }
+    }
+    function rep_add_email_list(text) {
+        alert(text);
+    }
+    function cancel_email_list() {
+        if (check_email()) {
+            Ajax.call('user.php?act=email_list&job=del&email=' + email.value, '', rep_cancel_email_list, 'GET', 'TEXT');
+        }
+    }
+    function rep_cancel_email_list(text) {
+        alert(text);
+    }
+    function check_email() {
+        if (Utils.isEmail(email.value)) {
+            return true;
+        }
+        else {
+            alert('{$lang.email_invalid}');
+            return false;
+        }
+    }
+</script>
+</body>
+
+</html>

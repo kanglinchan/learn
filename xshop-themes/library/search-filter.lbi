@@ -1,0 +1,93 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="filter-box b-b">
+		<div class="container">
+        <!--组合搜索 开始-->
+        <!--{if $brands.1 || $price_grade.1 || $filter_attr_list}-->
+            <!--{if $brands.1}-->
+                <div class="optionBox">
+                    <strong>{$lang.brand}：</strong>
+                    <!--{foreach from=$brands item=brand}-->
+                        <!-- {if $brand.selected} -->
+                        <span class="active">{$brand.brand_name}</span>
+                        <!-- {else} -->
+                        <a href="{$brand.url}">{$brand.brand_name}</a> 
+                        <!-- {/if} -->
+                    <!--{/foreach}-->
+                </div>
+            <!--{/if}-->
+
+            <!--{if $price_grade.1}-->
+                <div class="optionBox">
+                <strong>{$lang.price}：</strong>
+                    <!--{foreach from=$price_grade item=grade}-->
+                        <!-- {if $grade.selected} -->
+                            <span class="active">{$grade.price_range}</span>
+                        <!-- {else} -->
+                            <a href="{$grade.url}">{$grade.price_range}</a> 
+                        <!-- {/if} -->
+                    <!--{/foreach}-->
+                </div>
+            <!--{/if}-->
+                <!--{foreach from=$filter_attr_list item=filter_attr}-->
+                    <div class="optionBox">
+                        <strong>{$filter_attr.filter_attr_name|escape:html} :</strong>
+                            <!--{foreach from=$filter_attr.attr_list item=attr}-->
+                                <!-- {if $attr.selected} -->
+                                    <span class="active">{$attr.attr_value}</span>
+                                <!-- {else} -->
+                                    <a href="{$attr.url}">{$attr.attr_value}</a> 
+                                <!-- {/if} -->
+                            <!--{/foreach}-->
+                    </div>
+                <!--{/foreach}-->
+            <!-- {/if} -->
+        <!--组合搜索 结束-->
+
+
+        <div class="optionBox sort not-b-b clear-fix">
+				<div class="left">{$lang.search_result} &nbsp{$lang.pager_1}:{$pager.record_count}</div>
+				<div class="right">
+                        <!--{if $goods_list}-->
+                            <form action="search.php" method="post" class="sort" name="listform" id="form">
+                                <span>{$lang.btn_display}：</span>
+                                <select name="sort">
+                                    {html_options options=$lang.sort selected=$pager.search.sort}
+                                </select>
+                                <select name="order">
+                                    {html_options options=$lang.order selected=$pager.search.order}
+                                </select>
+                                <input type="submit" name="imageField" value="确认"  alt="go"/>
+                                <input type="hidden" name="page" value="{$pager.page}" />
+                                <input type="hidden" name="display" value="{$pager.display}" id="display" />
+                                <!--{foreach from=$pager.search key=key item=item}-->
+                                {if $key neq "sort" and $key neq "order"}
+                                    {if $key eq 'keywords'}
+                                    <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+                                    {else}
+                                    <input type="hidden" name="{$key}" value="{$item}" />
+                                    {/if}
+                                {/if}
+                                <!--{/foreach}-->
+                                </form>
+                        <!--{/if}-->
+				</div>
+		</div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

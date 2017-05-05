@@ -1,0 +1,32 @@
+
+<!-- #BeginLibraryItem "/library/header.lbi" --><!-- #EndLibraryItem -->
+
+<div class="focus-section">
+	<div class="container">
+		<div class="focus-banner">
+
+		<!-- #BeginLibraryItem "/library/focus-banner.lbi" --><!-- #EndLibraryItem --> 
+
+		</div>
+
+		<div class="focus-category">
+			<!-- #BeginLibraryItem "/library/focus-category.lbi" --><!-- #EndLibraryItem --> 
+		</div>
+
+	</div>
+</div>
+
+<div class="floor container product-ad">
+	<!-- #BeginLibraryItem "/library/promotion_goods.lbi" --><!-- #EndLibraryItem -->
+</div>
+
+<!-- #BeginLibraryItem "/library/goods_hot.lbi" --><!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/goods_new.lbi" --><!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/goods_best.lbi" --><!-- #EndLibraryItem -->
+
+
+
+
+
+<!-- #BeginLibraryItem "/library/footer.lbi" --><!-- #EndLibraryItem --> 
+

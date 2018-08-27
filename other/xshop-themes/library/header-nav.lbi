@@ -1,0 +1,52 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="header-nav-menu-box clear-fix">
+    <div class="header-nav-menu-logo">
+        <a href="../index.php" name="top"><img src="../images/logo.gif" /></a> 
+    </div>
+
+    <div class="header-nav-menu-car">
+        <i></i>
+        <a href="">{insert name='cart_info'}</a>
+    </div>
+    <div class="header-nav-menu-search">
+        <form action="search.php" method="get" id="form-serach">
+            <input type="hidden" name="category" value="0" >
+            <input type="text" name="keywords" id="keywords" placeholder="查找商品" /><input type="submit"  value="搜索商品" />           
+        </form>
+    </div>
+</div>
+<dl class="clear-fix">
+    <dt>
+        <i></i>
+        <a href="../index.php">商品分类</a>
+    </dt>
+    <dd>
+        <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+            <a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>{$nav.name}<span></span></a>
+        <!-- {/foreach} -->
+    </dd>
+</dl>
+
+
+
+
+
+
+
+
+
+<script>
+    document.getElementById("form-serach").addEventListener("submit",function(){
+        if(this.keywords.value){
+            return true;
+        }
+        else
+        {
+            alert("搜索内容不能为空！");
+            return false;
+        }
+    });
+
+</script>

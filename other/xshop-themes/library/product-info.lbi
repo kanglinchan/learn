@@ -1,0 +1,193 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="product-info">
+  <form action="javascript:addToCart({$goods.goods_id})" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
+    <h2 class="product-name">{$goods.goods_style_name}</h2>
+    <p class="product-desc">
+      <!-- {if $goods.goods_brand neq "" and $cfg.show_brand} 显示商品品牌-->
+      <span>{$lang.goods_brand}<a href="{$goods.goods_brand_url}" >{$goods.goods_brand}</a></span>
+      <!--{/if}-->
+
+      <!-- {if $cfg.show_goodssn} 显示商品货号-->
+      <span>{$lang.goods_sn}{$goods.goods_sn}</span>
+      <!-- {/if} -->
+
+      <!-- {if $cfg.show_goodsweight} 商品重量-->
+      <!--<span>{$lang.goods_weight}{$goods.goods_weight}</sapn>-->
+      <!-- {/if} -->
+    </p>
+    <p class="product-desc">
+      <!-- {if $cfg.show_addtime} 上架时间-->
+      <span>{$lang.add_time}{$goods.add_time}</span>
+      <!-- {/if} -->
+
+      <!-- {if $goods.goods_number neq "" and $cfg.show_goodsnumber} 商品库存-->
+      <!-- {if $goods.goods_number eq 0} -->
+      <span>{$lang.goods_number}{$lang.stock_up}</span>
+      <!-- {else} -->
+      <span>{$lang.goods_number} {$goods.goods_number} {$goods.measure_unit}</span>
+      <!-- {/if} -->
+      <!-- {/if} -->
+    </p>
+    <p class="product-price">
+      <!--本店售价-->
+      {$lang.shop_price} <span id="ECS_GOODS_AMOUNT">{$goods.shop_price_formated}</span>
+    </p>
+
+
+
+    <div class="product-choose" id="product-choose">
+      <!-- {* 开始循环所有可选属性 *} -->
+      <!-- {foreach from=$specification item=spec key=spec_key} -->
+      <dl class="clear-fix">
+        <dt>{$spec.name}:</dt>
+        <!-- {* 判断属性是复选还是单选 *} -->
+        <!-- {if $spec.attr_type eq 1} -->
+        <!-- {if $cfg.goodsattr_style eq 1} -->
+        <!-- {foreach from=$spec.values item=value key=key} -->
+        <label for="spec_value_{$value.id}">
+            <input type="radio" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" {if $key eq 0}checked="checked"{/if} onchange="changePrice()"/>
+             <dd {if $key eq 0}class="active" {/if}>{$value.label}</dd>
+        </label>
+        <!-- {/foreach} -->
+        <input type="hidden" name="spec_list" value="{$key}" />
+        <!-- {else} -->
+        <select name="spec_{$spec_key}" onchange="changePrice()">
+                          <!-- {foreach from=$spec.values item=value key=key} -->
+                          <option label="{$value.label}" value="{$value.id}">{$value.label} </option>
+                          <!-- {/foreach} -->
+                        </select>
+        <input type="hidden" name="spec_list" value="{$key}" />
+        <!-- {/if} -->
+        <!-- {else} -->
+        <!-- {foreach from=$spec.values item=value key=key} -->
+        <label for="spec_value_{$value.id}">
+            <input type="checkbox" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" onchange="changePrice()"/>
+            <dd {if $key eq 0}class="active" {/if}> {$value.label} </dd> 
+       </label>
+        <!-- {/foreach} -->
+        <input type="hidden" name="spec_list" value="{$key}" />
+        <!-- {/if} -->
+      </dl>
+      <!-- {/foreach} -->
+      <!-- {* 结束循环可选属性 *} -->
+    </div>
+
+    <div class="count clear-fix">
+      <span>数量:</span>
+      <a id="product-number-decrement" class="decrement">-</a>
+      <input name="number" type="text" id="number" value="1" size="4" onblur="changePrice()" />
+      <a id="product-number-increment">+</a>
+    </div>
+
+    <div class="product-choose-property">
+      你选择的商品是:
+      <span id="product-choose-property"></span><br>
+      <!-- {if $goods.is_shipping} 为免运费商品则显示-->
+      {$lang.goods_free_shipping}
+      <!-- {/if} -->
+    </div>
+
+
+    <div class="btn clear-fix">
+      <a href="javascript:addToCart({$goods.goods_id})" class="active">立刻购买</a>
+      <a href="javascript:collect({$goods.goods_id})">收藏商品</a>
+    </div>
+  </form>
+</div>
+
+
+
+
+<script>
+  var goodsId = { $goods_id };
+  /**
+   * 点选可选属性或改变数量时修改商品价格的函数
+   */
+  function changePrice() {
+    var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);
+    var qty = document.forms['ECS_FORMBUY'].elements['number'].value;
+    Ajax.call('goods.php', 'act=price&id=' + goodsId + '&attr=' + attr + '&number=' + qty, ResponseCallback, 'GET', 'JSON');
+  }
+
+
+  function ResponseCallback(res){
+      changePriceResponse(res);
+      changeActive();
+      showChooseInfo();
+  }
+
+  /**
+   * 接收返回的信息
+   */
+  function changePriceResponse(res) {
+    if (res.err_msg.length > 0) {
+      alert(res.err_msg);
+    }
+    else {
+      document.forms['ECS_FORMBUY'].elements['number'].value = res.qty;
+
+      if (document.getElementById('ECS_GOODS_AMOUNT'))
+        document.getElementById('ECS_GOODS_AMOUNT').innerHTML = res.result;
+    }   
+  }
+
+  
+
+
+  //change number
+  var increatement = document.getElementById("product-number-increment");
+  var decrement = document.getElementById("product-number-decrement")
+  increatement.addEventListener("click", function () {
+    document.forms['ECS_FORMBUY'].number.value = Number(document.forms['ECS_FORMBUY'].number.value) + 1;
+    changePrice();
+  });
+  decrement.addEventListener("click", function () {
+    if (document.forms['ECS_FORMBUY'].number.value - 1 < 1) {
+      return false;
+    } else {
+      document.forms['ECS_FORMBUY'].number.value = Number(document.forms['ECS_FORMBUY'].number.value) - 1;
+    }
+    changePrice();
+  })
+
+
+  //改变选择
+  function changeActive() {
+    var inputs = document.getElementById("product-choose").getElementsByTagName("input");
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].nextElementSibling && inputs[i].nextElementSibling.tagName == "DD") {
+        inputs[i].nextElementSibling.className = "";
+      }
+    }
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].checked) {
+        if (inputs[i].nextElementSibling) {
+          inputs[i].nextElementSibling.className = "active";
+        }
+      }
+    }
+  }
+
+  function showChooseInfo(){
+      var text = "";
+      var dl = document.getElementById("product-choose").getElementsByTagName("dl");
+      var productChooseProperty = document.getElementById("product-choose-property");
+      for( var i =0; i<dl.length; i++ ){
+          var attributeName = dl[i].getElementsByTagName('dt')[0].innerHTML;
+          var attributeValues = dl[i].getElementsByTagName('dd');
+            for( var j=0; j<attributeValues.length; j++ ){
+                if( attributeValues[j].className =="active" ){
+                  var attributeValue = attributeValues[j].innerHTML;
+                }
+            }
+          text += attributeName+attributeValue+"&nbsp";
+      }
+      productChooseProperty.innerHTML = text;
+  }
+
+
+
+  window.addEventListener("load", changePrice);
+
+</script>

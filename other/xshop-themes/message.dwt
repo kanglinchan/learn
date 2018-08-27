@@ -1,0 +1,13 @@
+
+<!-- #BeginLibraryItem "/library/header.lbi" --><!-- #EndLibraryItem -->
+  <div class="page-message">
+          <h3>{$lang.system_info}</h3>
+          <p >{$message.content}</p>
+          <!-- {if $message.url_info} -->
+            <!--{foreach from=$message.url_info key=info item=url}-->
+              <p><a href="{$url}">{$info}</a></p>
+            <!--{/foreach}-->
+          <!--{/if}-->
+  </div>
+<!-- #BeginLibraryItem "/library/footer.lbi" --><!-- #EndLibraryItem -->
+

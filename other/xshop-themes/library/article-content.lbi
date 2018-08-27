@@ -1,0 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="right article-detail">
+  <div class="title clear-fix">
+    <h3>{$article.title|escape:html}</h3>
+    <p class="aticle-info">
+      {$article.author|escape:html} / {$article.add_time}
+    </p>
+  </div>
+  <div class="content">
+    <!-- {if $article.content } -->
+    {$article.content}
+    <!-- {/if} -->
+    
+  </div>
+
+  <div class="article-nav clear-fix">
+    <div class="previous">
+      <span>上一篇：</span>
+      <!-- 上一篇文章 -->
+      {if $next_article} {$lang.next_article}:
+      <a href="{$next_article.url}" class="f6">{$next_article.title}</a><br /> {/if}
+    </div>
+    <div class="next">
+      <span>下一篇：</span>
+      <!-- 下一篇文章 -->
+      {if $prev_article} {$lang.prev_article}:
+      <a href="{$prev_article.url}" class="f6">{$prev_article.title}</a> {/if}
+    </div>
+  </div>

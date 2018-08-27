@@ -1,0 +1,8 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<dl class="category not-dl ">
+    <dt>商品分类</dt>
+    <!--{foreach from=$categories item=cat}-->
+    <dd><a href="{$cat.url}">{$cat.name|escape:html}</a></dd>
+    <!--{/foreach}--> 
+</dl>

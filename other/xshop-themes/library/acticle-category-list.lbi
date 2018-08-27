@@ -1,0 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="search clear-fix">
+    <form action="{$search_url}" name="search_form" method="post" >
+        <input name="id" type="hidden" value="{$cat_id}" />
+        <input name="cur_url" id="cur_url" type="hidden" value="" />
+        <input type="submit" value="{$lang.button_search}" />
+        <input name="keywords" type="text" id="requirement" value="{$search_value}" />
+    </form>
+</div>
+
+<table border="" cellspacing="" cellpadding="">
+    <thead>
+        <tr>
+            <th>{$lang.article_title}</th>
+            <th>{$lang.article_author}</th>
+            <th>{$lang.article_add_time}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- {foreach from=$artciles_list item=article} -->
+            <tr>
+                <td bgcolor="#ffffff"><a href="{$article.url}" title="{$article.title|escape:html}" class="f6">{$article.short_title}</a></td>
+                <td bgcolor="#ffffff">{$article.author}</td>
+                <td bgcolor="#ffffff" align="center">{$article.add_time}</td>
+            </tr>
+        <!-- {/foreach} -->
+    </tbody>
+</table>

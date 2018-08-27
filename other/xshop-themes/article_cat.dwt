@@ -1,0 +1,27 @@
+<!-- #BeginLibraryItem "/library/header.lbi" --><!-- #EndLibraryItem --> 
+		
+<div class="page-main bg-ligthgray">
+
+<!-- #BeginLibraryItem "/library/breadcrumb.lbi" --><!-- #EndLibraryItem --> 
+<!-- #BeginLibraryItem "/library/article_category.lbi" --><!-- #EndLibraryItem --> 
+	
+
+	<div class="article-cat-section">
+		<div class="container clear-fix">
+			<div class="left">
+				
+				<!-- #BeginLibraryItem "/library/article-category-tree.lbi" --><!-- #EndLibraryItem --> 
+			</div>
+			
+			
+			<div class="right">
+				<!-- #BeginLibraryItem "/library/acticle-category-list.lbi" --><!-- #EndLibraryItem -->
+				<!-- #BeginLibraryItem "/library/article-category-pages.lbi" --><!-- #EndLibraryItem --> 
+			</div>
+		</div>
+	</div>
+
+
+</div>		
+
+<!-- #BeginLibraryItem "/library/footer.lbi" --><!-- #EndLibraryItem --> 
